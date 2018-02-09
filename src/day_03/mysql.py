@@ -9,6 +9,9 @@ import pymysql
 class Mysql(object):
     """ Mysql 操作类
 
+    参考 1：python 风格 sql 查询 -- https://pypi.python.org/pypi/python-sql
+    参考 2：面向生成器 sql 接口 -- https://ponyorm.com/
+
     Attributes:
         __instance: Mysql 单例
         __connection: Mysql 连接
@@ -28,8 +31,8 @@ class Mysql(object):
         Args:
             host: 主机 ip
             user: 用户名
-            pwd: 密码
-            db_name: 数据库名
+            password: 密码
+            database: 数据库名
 
         Return: None
 
@@ -38,11 +41,11 @@ class Mysql(object):
         """
         host = kwargs.get('host', "localhost")
         user = kwargs.get('user', "root")
-        pwd = kwargs.get('pwd', "root")
-        db_name = kwargs.get('db_name', "default")
+        password = kwargs.get('password', "root")
+        database = kwargs.get('database', "default")
 
         try:
-            self.__connection = pymysql.connect(host=host, user=user, password=pwd, database=db_name, charset="utf8")
+            self.__connection = pymysql.connect(host=host, user=user, password=password, database=database, charset="utf8")
         except pymysql.err.OperationalError:
             print("connect failed.")
         else:
@@ -99,7 +102,7 @@ class Mysql(object):
 
 
 def main():
-    mysql_instance = Mysql(host="127.0.0.1", user="ltbl", pwd="ltbl", db_name="test")
+    mysql_instance = Mysql(host="127.0.0.1", user="ltbl", password="ltbl", database="test")
 
     with open("keys.txt", "r") as f:
         for data in f.readlines():
