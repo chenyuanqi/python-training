@@ -15,9 +15,9 @@ class BodyParser(HTMLParser):
     handle_endtag: 要分析的解析标签
     """
     def __init__(self):
+        HTMLParser.__init__(self)
         self.body = ""
         self.is_body = False
-        HTMLParser.__init__(self)
 
     def handle_starttag(self, tag, attributes):
         if tag == 'body':

@@ -10,7 +10,6 @@ from bs4 import BeautifulSoup
 def main():
     """ 分析提取 html 链接
 
-    使用 python 3 执行脚本
     bs4 doc: https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.zh.html
     """
     html_content = urlopen("https://www.douban.com/")
