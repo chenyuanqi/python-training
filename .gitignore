@@ -102,3 +102,6 @@ ENV/
 
 # ide
 .idea/
+
+# download file
+src/day_11/download/*
