@@ -102,6 +102,8 @@ ENV/
 
 # ide
 .idea/
+src/.DS_Store
 
 # download file
 src/day_11/download/*
+src/spider/rails365/*
