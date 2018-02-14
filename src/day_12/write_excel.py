@@ -9,7 +9,7 @@ import json
 
 
 def main():
-    """ 操作 excel
+    """ write excel
 
     参考链接：
     http://www.python-excel.org/
@@ -26,8 +26,8 @@ def main():
         for key, value in file_dict.items():
             # sheet.write(row_number, col_number, sheet_content, sheet_style)
             student_sheet.write(file_line, 0, key)
-            for index, file_value in enumerate(value):
-                student_sheet.write(file_line, index + 1, file_value)
+            for file_key, file_value in enumerate(value):
+                student_sheet.write(file_line, file_key + 1, file_value)
             # 行号自增
             file_line = file_line + 1
 
